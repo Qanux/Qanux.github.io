@@ -74,27 +74,9 @@
   </url>
   
   <url>
-    <loc>https://qanux.github.io/2024/01/24/linux%20kernel%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/</loc>
-    
-    <lastmod>2024-04-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://qanux.github.io/2024/03/15/llvm/</loc>
     
     <lastmod>2024-03-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qanux.github.io/2023/11/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8gdb%E6%9D%A5%E8%B0%83%E8%AF%95%E5%BC%82%E6%9E%84%E7%A8%8B%E5%BA%8F/</loc>
-    
-    <lastmod>2024-03-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -127,19 +109,10 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://qanux.github.io/2024/02/19/qemu%E9%80%83%E9%80%B8/</loc>
-    
-    <lastmod>2024-03-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://qanux.github.io/</loc>
-    <lastmod>2024-08-06</lastmod>
+    <lastmod>2024-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
