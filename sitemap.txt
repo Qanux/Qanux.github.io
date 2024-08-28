@@ -1,3 +1,4 @@
+https://qanux.github.io/2024/08/28/%E7%BE%8A%E5%9F%8E%E6%9D%AF%202024%20pwn%20writeup/
 https://qanux.github.io/2024/08/06/house%20of%20water%20&%20TFCCTF%202024%20MCGUAVA/
 https://qanux.github.io/2024/08/01/%E6%98%A5%E7%A7%8B%E4%BA%91%E5%A2%83Initial%E8%AF%A6%E8%A7%A3/
 https://qanux.github.io/link/index.html
