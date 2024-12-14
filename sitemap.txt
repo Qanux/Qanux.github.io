@@ -1,4 +1,4 @@
-https://qanux.github.io/2024/12/31/uefi/
+https://qanux.github.io/2024/12/14/uefi/
 https://qanux.github.io/about/index.html
 https://qanux.github.io/2024/11/12/fileuaf/
 https://qanux.github.io/2024/08/06/house%20of%20water%20&%20TFCCTF%202024%20MCGUAVA/
