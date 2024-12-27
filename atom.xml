@@ -81,11 +81,11 @@
     
     
     
-    <category term="Writeup" scheme="https://qanux.github.io/tags/Writeup/"/>
-    
     <category term="linux" scheme="https://qanux.github.io/tags/linux/"/>
     
     <category term="kernel" scheme="https://qanux.github.io/tags/kernel/"/>
+    
+    <category term="Writeup" scheme="https://qanux.github.io/tags/Writeup/"/>
     
   </entry>
   
