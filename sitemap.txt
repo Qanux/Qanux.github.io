@@ -1,3 +1,4 @@
+https://qanux.github.io/2024/12/31/2024/
 https://qanux.github.io/2024/11/12/fileuaf/
 https://qanux.github.io/2024/10/07/kno_puts/
 https://qanux.github.io/friend/index.html
@@ -17,15 +18,15 @@ https://qanux.github.io/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%B
 https://qanux.github.io/link/index.html
 https://qanux.github.io/
 https://qanux.github.io/tags/life/
-https://qanux.github.io/tags/linux/
-https://qanux.github.io/tags/kernel/
 https://qanux.github.io/tags/Writeup/
 https://qanux.github.io/tags/CTF/
 https://qanux.github.io/tags/pwn/
+https://qanux.github.io/tags/linux/
+https://qanux.github.io/tags/kernel/
+https://qanux.github.io/tags/llvm-pass/
 https://qanux.github.io/tags/musl/
-https://qanux.github.io/tags/v8/
-https://qanux.github.io/tags/UEFI/
 https://qanux.github.io/tags/%E6%B8%97%E9%80%8F/
 https://qanux.github.io/tags/%E5%86%85%E7%BD%91/
-https://qanux.github.io/tags/llvm-pass/
+https://qanux.github.io/tags/UEFI/
+https://qanux.github.io/tags/v8/
 https://qanux.github.io/tags/xv6/
