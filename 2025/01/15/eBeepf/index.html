@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="写在最前面拟态决赛已经结束了有一段时间了，至于为什么要写这一篇博客是因为我发现当时我们在比赛时好像非预期了，而且非预期后题目难度大幅度下降，所以我觉得很有必要分享一下我们当时的做法。 信息收集又是 linux kernel 没什么好说的，内核版本是 6.11.7   1234567891011121314151617181920212223                           @@">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强网拟态 2024 决赛: eBeepf">
+<meta property="og:url" content="https://qanux.github.io/2025/01/15/eBeepf/index.html">
+<meta property="og:site_name" content="Qanux&#39;s space">
+<meta property="og:description" content="写在最前面拟态决赛已经结束了有一段时间了，至于为什么要写这一篇博客是因为我发现当时我们在比赛时好像非预期了，而且非预期后题目难度大幅度下降，所以我觉得很有必要分享一下我们当时的做法。 信息收集又是 linux kernel 没什么好说的，内核版本是 6.11.7   1234567891011121314151617181920212223                           @@">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-01-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-15T05:17:02.279Z">
+<meta property="article:author" content="Qanux">
+<meta property="article:tag" content="CsomePro">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>强网拟态 2024 决赛: eBeepf</title>
+    <!-- async scripts -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dfa426831961b1170306cf91cfce69b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+    
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Qanux's space" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/friend/">link</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/01/09/Compressor/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qanux.github.io/2025/01/15/eBeepf/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qanux.github.io/2025/01/15/eBeepf/&text=强网拟态 2024 决赛: eBeepf"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qanux.github.io/2025/01/15/eBeepf/&is_video=false&description=强网拟态 2024 决赛: eBeepf"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=强网拟态 2024 决赛: eBeepf&body=Check out this article: https://qanux.github.io/2025/01/15/eBeepf/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qanux.github.io/2025/01/15/eBeepf/&name=强网拟态 2024 决赛: eBeepf&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qanux.github.io/2025/01/15/eBeepf/&t=强网拟态 2024 决赛: eBeepf"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在最前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">漏洞分析与利用</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        强网拟态 2024 决赛: eBeepf
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Qanux</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-01-14T16:00:00.000Z" class="dt-published" itemprop="datePublished">2025-01-15</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h2><p>拟态决赛已经结束了有一段时间了，至于为什么要写这一篇博客是因为我发现当时我们在比赛时好像非预期了，而且非预期后题目难度大幅度下降，所以我觉得很有必要分享一下我们当时的做法。</p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>又是 linux kernel 没什么好说的，内核版本是 6.11.7  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">                           @@@@</span><br><span class="line">                           @@@</span><br><span class="line">                          @@@</span><br><span class="line">                        @@@@@</span><br><span class="line">             @@@     @@@@@@@@@@@    @@@@@</span><br><span class="line">       @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">      @@+            +@@@@@@@@@@@@@</span><br><span class="line">      @%  +%%%@@@@@%*= <span class="comment">#@@@@@@@@@@@</span></span><br><span class="line">      @@@           -=%@@@@@@@@@@@@</span><br><span class="line">       @@@%        +<span class="comment">#@@@@@@@**%@@@@</span></span><br><span class="line">         @@@@@@@@@@%=   <span class="comment">#@++%  #@@</span></span><br><span class="line">          @@@:*@@@%-   +@*  *<span class="comment">#  #@@</span></span><br><span class="line">          @@<span class="comment">#:-#@@@@%==#@=  -**  #@@</span></span><br><span class="line">          @@@-:-+@@@@@@@@+   %<span class="comment">#=  @@</span></span><br><span class="line">           @@@=:::=*@@@@@@<span class="comment">##+=#+  %@@</span></span><br><span class="line">            @@@%=::::::-<span class="comment">#@@=  ###%@@@</span></span><br><span class="line">            @@@@@@@@@@@@@@@@@ <span class="comment">#   @@@</span></span><br><span class="line">            @@@   @@@@      @@@@@@@@</span><br><span class="line"></span><br><span class="line">Boot took 1.99 seconds</span><br><span class="line"></span><br><span class="line">/ $ <span class="built_in">uname</span> -r</span><br><span class="line">6.11.7</span><br></pre></td></tr></table></figure>
+
+<p>附件给了一个 bee.patch  </p>
+<figure class="highlight patch"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">diff -r linux-6.11.7/include/uapi/linux/bpf.h linux-6.11.7.patched/include/uapi/linux/bpf.h</span><br><span class="line">960a961</span><br><span class="line">&gt; 	BPF_MAP_RESET_REF,</span><br><span class="line">diff -r linux-6.11.7/kernel/bpf/syscall.c linux-6.11.7.patched/kernel/bpf/syscall.c</span><br><span class="line">5690a5691,5711</span><br><span class="line">&gt; static int bpf_map_do_reset_ref(union bpf_attr *attr)</span><br><span class="line">&gt; &#123;</span><br><span class="line">&gt;       int ufd = attr-&gt;map_fd;</span><br><span class="line">&gt;       struct bpf_map *map;</span><br><span class="line">&gt;       struct fd f;</span><br><span class="line">&gt;       f = fdget(ufd);</span><br><span class="line">&gt;       map = __bpf_map_get(f);</span><br><span class="line">&gt;       if (IS_ERR(map)) &#123;</span><br><span class="line">&gt;               fdput(f);</span><br><span class="line">&gt;               return PTR_ERR(map);</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       if (map-&gt;max_entries &gt; 60) &#123;</span><br><span class="line">&gt;               fdput(f);</span><br><span class="line">&gt;               return -EINVAL;</span><br><span class="line">&gt;       &#125;</span><br><span class="line">&gt;       atomic64_set(&amp;map-&gt;refcnt, 1);</span><br><span class="line">&gt;       atomic64_set(&amp;map-&gt;sleepable_refcnt, 0);</span><br><span class="line">&gt;       fdput(f);</span><br><span class="line">&gt;       return 0;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; </span><br><span class="line">5825a5847,5849</span><br><span class="line">&gt; 		break;</span><br><span class="line">&gt; 	case BPF_MAP_RESET_REF:</span><br><span class="line">&gt; 		err = bpf_map_do_reset_ref(&amp;attr);</span><br></pre></td></tr></table></figure>
+
+<p>可以看到出题人给内核的 bpf 模块加了一个新的功能，那么漏洞应该就在这里了。  </p>
+<h2 id="漏洞分析与利用"><a href="#漏洞分析与利用" class="headerlink" title="漏洞分析与利用"></a>漏洞分析与利用</h2><p>fd 结构体的定义如下：  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fd</span> &#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">file</span> *<span class="title">file</span>;</span></span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> flags;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>其实就是 file 结构体再另外加了一个 flags 标志位  </p>
+<p>fdget 会经过多层调用最终调用 __fget_light 函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="keyword">struct</span> fd <span class="title function_">fdget</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> fd)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> __to_fd(__fdget(fd));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>fdget 调用 __fdget</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">long</span> __fdget(<span class="type">unsigned</span> <span class="type">int</span> fd)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> __fget_light(fd, FMODE_PATH);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>__fdget 调用 __fget_light</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Lightweight file lookup - no refcnt increment if fd table isn&#x27;t shared.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * You can use this instead of fget if you satisfy all of the following</span></span><br><span class="line"><span class="comment"> * conditions:</span></span><br><span class="line"><span class="comment"> * 1) You must call fput_light before exiting the syscall and returning control</span></span><br><span class="line"><span class="comment"> *    to userspace (i.e. you cannot remember the returned struct file * after</span></span><br><span class="line"><span class="comment"> *    returning to userspace).</span></span><br><span class="line"><span class="comment"> * 2) You must not call filp_close on the returned struct file * in between</span></span><br><span class="line"><span class="comment"> *    calls to fget_light and fput_light.</span></span><br><span class="line"><span class="comment"> * 3) You must not clone the current task in between the calls to fget_light</span></span><br><span class="line"><span class="comment"> *    and fput_light.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * The fput_needed flag returned by fget_light should be passed to the</span></span><br><span class="line"><span class="comment"> * corresponding fput_light.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">static</span> <span class="type">unsigned</span> <span class="type">long</span> __fget_light(<span class="type">unsigned</span> <span class="type">int</span> fd, <span class="type">fmode_t</span> mask)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">files_struct</span> *<span class="title">files</span> =</span> current-&gt;files;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">file</span> *<span class="title">file</span>;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * If another thread is concurrently calling close_fd() followed</span></span><br><span class="line"><span class="comment">	 * by put_files_struct(), we must not observe the old table</span></span><br><span class="line"><span class="comment">	 * entry combined with the new refcount - otherwise we could</span></span><br><span class="line"><span class="comment">	 * return a file that is concurrently being freed.</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 * atomic_read_acquire() pairs with atomic_dec_and_test() in</span></span><br><span class="line"><span class="comment">	 * put_files_struct().</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">if</span> (likely(atomic_read_acquire(&amp;files-&gt;count) == <span class="number">1</span>)) &#123;</span><br><span class="line">		file = files_lookup_fd_raw(files, fd);</span><br><span class="line">		<span class="keyword">if</span> (!file || unlikely(file-&gt;f_mode &amp; mask))</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> (<span class="type">unsigned</span> <span class="type">long</span>)file;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		file = __fget_files(files, fd, mask);</span><br><span class="line">		<span class="keyword">if</span> (!file)</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> FDPUT_FPUT | (<span class="type">unsigned</span> <span class="type">long</span>)file;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意看这个 __fget_light 函数，该函数用于根据文件描述符（fd）获取对应的文件结构体 struct file，但是它有一些限制条件，使得它的使用比标准的文件获取函数 fget 更加轻量级。以下是代码的主要功能和步骤的解释：<br>函数先通过 files_struct *files &#x3D; current-&gt;files 获取当前进程的文件描述符表，如果当前进程的文件描述符表引用计数为 1 (atomic_read_acquire(&amp;files-&gt;count) &#x3D;&#x3D; 1)，说明没有其他线程正在操作这个文件描述符表，可以执行轻量级的查找，直接调用 files_lookup_fd_raw 在文件描述符表中查找对应的文件结构体 struct file。  </p>
+<p>如果文件描述符表的引用计数不为 1 (atomic_read_acquire(&amp;files-&gt;count) !&#x3D; 1)，说明可能有线程正在操作这个表，此时需要执行更重量级的查找，即调用 __fget_files_rcu 函数，如果读者这个函数的具体功能感兴趣的话可以自行去看<a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/v6.11.2/source/fs/file.c#L1026">源码</a>，正常情况下他会返回当前 fd 所指向的 file 结构体并将其 f_count 加一。再更加重量级的操作最后会给 fd 结构体的 flags 标志位加上一个 FDPUT_FPUT。  </p>
+<p>接下来是 fdput 函数，看这个函数名就感觉和 fput 功能很相识，其源码如下：  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">void</span> <span class="title function_">fdput</span><span class="params">(<span class="keyword">struct</span> fd fd)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (fd.flags &amp; FDPUT_FPUT)</span><br><span class="line">		fput(fd.file);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其作用就是判断 fd 结构体的标志位是否存在 FDPUT_FPUT，如果存在则通过调用 fput 来令 file 结构体的 f_count 减一，而 FDPUT_FPUT 我们通过上面的分析可知需要利用多线程调用 __fget_light 才会给加上。  </p>
+<p>__bpf_map_get 函数比较重要，其源码如下：  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* if error is returned, fd is released.</span></span><br><span class="line"><span class="comment"> * On success caller should complete fd access with matching fdput()</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">bpf_map</span> *__<span class="title">bpf_map_get</span>(<span class="keyword">struct</span> <span class="title">fd</span> <span class="title">f</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">if</span> (!f.file)</span><br><span class="line">		<span class="keyword">return</span> ERR_PTR(-EBADF);</span><br><span class="line">	<span class="keyword">if</span> (f.file-&gt;f_op != &amp;bpf_map_fops) &#123;</span><br><span class="line">		fdput(f);</span><br><span class="line">		<span class="keyword">return</span> ERR_PTR(-EINVAL);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> f.file-&gt;private_data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>__bpf_map_get 函数是用于获取 eBPF 映射的引用，该函数接收一个映射的文件描述符（eBPF 映射的文件描述符）作为参数，如果我们传入的文件描述符是一个普通的文件而不是 eBPF 的映射，那么 __bpf_map_get 就会调用 fdput 处理该 fd 结构体然后返回错误 -EINVAL。问题就出现在这个地方，我们再仔细看看这段 patch 的代码：  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span> = __bpf_map_get(f);</span><br><span class="line"><span class="keyword">if</span> (IS_ERR(<span class="built_in">map</span>)) &#123;</span><br><span class="line">        fdput(f);</span><br><span class="line">        <span class="keyword">return</span> PTR_ERR(<span class="built_in">map</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 __bpf_map_get 返回错误的时候还会再次调用 fdput 再处理一次 f 对象，也就是说如果我们 传入的是普通文件的文件描述符而不是 eBPF 映射的文件描述符，这段新增的 bpf 功能将会对这个 fd 结构体对象执行两次 fdput，而通过我们上面的分析，如果 fd 结构体的标志位有 FDPUT_FPUT 的话会执行 fput，这样就会造成 file uaf。<br>所以在这道题目中我们只需要再创建一个线程在这个新增的 bpf 模块中传入一个普通文件的文件描述符即可构造出 file uaf，有了 file uaf 之后打法就多样化了，这里就不再赘述。  </p>
+<p>需要注意的是，在 linux kernel 6.12+ 之后这部分的代码发生了很大的改变，比如 __bpf_map_get 函数：  </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="keyword">inline</span> <span class="class"><span class="keyword">struct</span> <span class="title">bpf_map</span> *__<span class="title">bpf_map_get</span>(<span class="keyword">struct</span> <span class="title">fd</span> <span class="title">f</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">if</span> (fd_empty(f))</span><br><span class="line">		<span class="keyword">return</span> ERR_PTR(-EBADF);</span><br><span class="line">	<span class="keyword">if</span> (unlikely(fd_file(f)-&gt;f_op != &amp;bpf_map_fops))</span><br><span class="line">		<span class="keyword">return</span> ERR_PTR(-EINVAL);</span><br><span class="line">	<span class="keyword">return</span> fd_file(f)-&gt;private_data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当传入的文件描述符不是 eBPF 映射的文件描述时不会再调用 fdput。  </p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/friend/">link</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在最前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">漏洞分析与利用</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qanux.github.io/2025/01/15/eBeepf/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qanux.github.io/2025/01/15/eBeepf/&text=强网拟态 2024 决赛: eBeepf"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qanux.github.io/2025/01/15/eBeepf/&is_video=false&description=强网拟态 2024 决赛: eBeepf"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=强网拟态 2024 决赛: eBeepf&body=Check out this article: https://qanux.github.io/2025/01/15/eBeepf/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qanux.github.io/2025/01/15/eBeepf/&title=强网拟态 2024 决赛: eBeepf"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qanux.github.io/2025/01/15/eBeepf/&name=强网拟态 2024 决赛: eBeepf&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qanux.github.io/2025/01/15/eBeepf/&t=强网拟态 2024 决赛: eBeepf"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2023-2025
+    Qanux
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/friend/">link</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+
+  
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+  
+    
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
