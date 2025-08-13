@@ -6,7 +6,7 @@
   <link href="https://qanux.github.io/atom.xml" rel="self"/>
   
   <link href="https://qanux.github.io/"/>
-  <updated>2025-08-05T15:41:05.241Z</updated>
+  <updated>2025-08-13T15:10:01.640Z</updated>
   <id>https://qanux.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>How I Drink Coke at SCNU</title>
+    <link href="https://qanux.github.io/2025/08/13/coke/"/>
+    <id>https://qanux.github.io/2025/08/13/coke/</id>
+    <published>2025-08-12T16:00:00.000Z</published>
+    <updated>2025-08-13T15:10:01.640Z</updated>
+    
+    <content type="html"><![CDATA[<p>在华师呆了三年，知识没学多少，可乐倒是喝了不少，这里介绍一下我是如何在华师 enjoy Coke 的 :)  </p><p>初高中的时候班上都有分可口派喝百事派，由于学校只出售瓶装的可乐，我比较喜欢百事的柠檬味，不过在大学的三年我发现下面这种喝法我是最喜欢的😋  </p><p>我买的是可口高罐的版本，也是下图这种：  </p><img src="/2025/08/13/coke/1.jpg" class="" title="我的图图呢">  <p>一定要冰冻的（非常重要）！！！  </p><p>宿舍楼下的贩卖机有时可以买，三块五，离宿舍不到一百米的阿里之门便宜点，三块，不过最近拆了，换成了驿站，但是价格没变:)  </p><p>选可口的原因是他的气比较多，选高罐的原因是他的气更多！！！  </p><p>但是当然不是直接喝，这样子气太多了，喝起来就像是喝气泡一样。这个时候我会拿出 VNCTF 2024 出题送的杯子，这个杯子的好处是他刚好可以装满一杯可乐，不多不少  </p><p>接下来把可乐打开快速倒进杯子中，装至杯子的一半，然后等待上面的气泡消散，再快速把剩下的可乐倒进去，最后变成下面这样：  </p><img src="/2025/08/13/coke/2.jpg" class="" title="我的图图呢">  <p>这一步的目的是去气泡，经过上面的步骤后可乐的气泡量不多不少，对于我来说简直是极致的享受😋  </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在华师呆了三年，知识没学多少，可乐倒是喝了不少，这里介绍一下我是如何在华师 enjoy Coke 的 :)  &lt;/p&gt;
+&lt;p&gt;初高中的时候班上都有分可口派喝百事派，由于学校只出售瓶装的可乐，我比较喜欢百事的柠檬味，不过在大学的三年我发现下面这种喝法我是最喜欢的😋  &lt;/p</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>2025小琐碎 (持续更新)</title>
@@ -394,26 +415,6 @@
     <summary type="html">&lt;p&gt;其实就是对各位大佬博客的各种摘抄和总结···，方便自己以后做题&lt;/p&gt;
 &lt;h2 id=&quot;结构体&quot;&gt;&lt;a href=&quot;#结构体&quot; class=&quot;headerlink&quot; title=&quot;结构体&quot;&gt;&lt;/a&gt;结构体&lt;/h2&gt;&lt;p&gt;chunk:&lt;/p&gt;
 &lt;figure class=&quot;h</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2023小琐碎记录贴</title>
-    <link href="https://qanux.github.io/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%BD%95%E8%B4%B4/"/>
-    <id>https://qanux.github.io/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%BD%95%E8%B4%B4/</id>
-    <published>2023-12-26T16:00:00.000Z</published>
-    <updated>2025-06-02T03:53:58.889Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="2023-3-27"><a href="#2023-3-27" class="headerlink" title="2023&#x2F;3&#x2F;27"></a>2023&#x2F;3&#x2F;27</h2><p>加入<code>Sloth</code>咯！！！<br>上学期<code>XSCTF</code>联合招新赛爆<code>0</code>后就没有在<code>CTF</code>走下去的打算，可是寒假在暨大的<code>i_corner</code>师傅的鼓励下打算再努力一把，刷了<code>2</code>个多月的<code>Crypto</code>和<code>misc</code>，最后在选拔赛拿了全场一血(我最爱的RSA)，太感动了<code>QAQ</code><br>不过也感受到了差距，第一名和第二名是大二的学长，分数比我高好多，同级的也有一位逆向好厉害<code>QAQ</code><br>搏一搏，单车变摩托，我要超越他们！！！！</p><h2 id="2023-4-2"><a href="#2023-4-2" class="headerlink" title="2023&#x2F;4&#x2F;2"></a>2023&#x2F;4&#x2F;2</h2><p>正式开始学<code>pwn</code>了捏  </p><img src="/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%BD%95%E8%B4%B4/1.png" class="" title="我的图图呢">  <h2 id="2023-5-28"><a href="#2023-5-28" class="headerlink" title="2023&#x2F;5&#x2F;28"></a>2023&#x2F;5&#x2F;28</h2><p>第一次打比赛，给打烂了捏&gt;_&lt;<br>打了一个月的<code>ret2libc</code>,才发现<code>pwn</code>原来还有这么多东西，看来要狠狠的卷了  </p><img src="/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%BD%95%E8%B4%B4/2.png" class="" title="我的图图呢">  <h2 id="2023-8-26"><a href="#2023-8-26" class="headerlink" title="2023&#x2F;8&#x2F;26"></a>2023&#x2F;8&#x2F;26</h2><p>好耶，闭关一段时间再参加比赛(蓝帽杯)，出了一道堆题，成就感拉满！！！！！！</p><h2 id="2023-9-10"><a href="#2023-9-10" class="headerlink" title="2023&#x2F;9&#x2F;10"></a>2023&#x2F;9&#x2F;10</h2><p>数模国赛逆大天，首先是有<code>78w</code>行数据，脚本跑一次好好几分钟，其次是题目完全没有思路，找不到适用的模型<code>&gt;_&lt;</code>，完全靠队友带飞<code>Orz</code></p><h2 id="2023-10-15"><a href="#2023-10-15" class="headerlink" title="2023&#x2F;10&#x2F;15"></a>2023&#x2F;10&#x2F;15</h2><p>香山杯太亏了，差一点点(几分)进决赛，问题出在<code>pwn</code>手(我),<code>pwn</code>差一题<code>Ak</code>，剩下一题<code>python pwn</code>，漏洞出现在<code>python</code>程序调用的函数包，函数包用<code>C++</code>写的，存在格式化字符串漏洞和栈溢出，可是我本地启动不了程序，调试不了<code>QAQ</code>，血亏，我背锅。赛后发现要使用<code>python3.7</code>才可以启动程序，裂大开<br>后期补充：决赛<code>awdp</code>的<code>3</code>题<code>pwn</code>我都会做，没去线下太可惜了，哦对，我还没进过线下(卑微)</p><h2 id="2023-10-16"><a href="#2023-10-16" class="headerlink" title="2023&#x2F;10&#x2F;16"></a>2023&#x2F;10&#x2F;16</h2><p>XSCTF联合招新赛结束拉，嘿嘿，第一次出题(一道简单的libc-2.27的unlink)，居然没人做？完了，要给<code>JANlittle</code>拉去喂鱼了</p><img src="/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%BD%95%E8%B4%B4/3.png" class="" title="我的图图呢">  <p>pwn的解题情况惨不忍睹，别后继无人啊QAQ(以后谁来带我)<br>133nson和Csome师兄出的<code>pwn</code>题质量是真的高，我要好好学习</p><h2 id="2023-11-9"><a href="#2023-11-9" class="headerlink" title="2023&#x2F;11&#x2F;9"></a>2023&#x2F;11&#x2F;9</h2><p>嘿嘿，<code>CS</code>杯选拔赛，欺负老实人<br>谁说算法只能用<code>C/C++</code>打的，上<code>python</code>！！！！！<br>4道题15分钟干了3题，而且2题一血，不过最后一题用深搜超时，到最后都没有做出来，哎，算法太烂了，而且好久没看了，人菜瘾大xD</p><h2 id="2023-12-9"><a href="#2023-12-9" class="headerlink" title="2023&#x2F;12&#x2F;9"></a>2023&#x2F;12&#x2F;9</h2><p>PolarCTF打爽了 Solved:24 grade:7000 rank:3<br>11题pwn全都会(有一题<code>house of orange</code>嫌麻烦且分不高没打，结果给<code>jelasin</code>师傅骂了<code>QAQ</code>)，还拿了题唯一血(预期解为改<code>printf</code>的格式表？不存在的，打<code>IO</code>才是<code>yyds</code>！！！)<br>Crypto全是脑洞题，没有数学题，差评QAQ，只会数学题&gt;_&lt;<br>有题逆向做出来后怎么交都是错，结束后才发现<code>flag</code>要进行<code>md5</code>加密，逆天(貌似题目上也没有说明XD)</p><h2 id="2023-12-10"><a href="#2023-12-10" class="headerlink" title="2023&#x2F;12&#x2F;10"></a>2023&#x2F;12&#x2F;10</h2><p>给<code>Csome</code>师兄拉去<code>S1uM4i</code>打<code>TCTF/0CTF</code>,坐大牢！！！题目过于逆天，连什么<code>ios kernel</code>都来了，感觉最少还要再练一年才能在这个比赛上做出题。<br>才大二，还来得及，冲！！！！</p><h2 id="2023-12-17"><a href="#2023-12-17" class="headerlink" title="2023&#x2F;12&#x2F;17"></a>2023&#x2F;12&#x2F;17</h2><p>强网杯太逆天了啊，学会了各种<code>io file</code>攻击以为可以乱杀，结果发现题目都是<code>VM</code>类型，完全看不懂逆向，看来<code>kernel</code>要延后一段时间再学了，先把<code>vmpwn</code>给拿下<br>比赛有点可惜，差一点进决赛<code>QAQ</code>，归根到底是我的问题，队友很<code>c</code>了，要是我能把那两题简单<code>pwn</code>做出来就能进决赛了(<code>WTOA</code>和<code>A-rtsp</code> 都是看不懂逆向，我的<code>500</code>分鸭<code>QAQ</code>)，寒假给我狠狠卷！！！！ 备战期末，这学期绩点必须给我高高高！！！！</p><img src="/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%BD%95%E8%B4%B4/4.png" class="" title="我的图图呢">  <p>虽然很遗憾，不过也学到了怎么通过<code>puts</code>函数来调用<code>io</code>链，也算是一种所获吧，强网杯已经没有想进决赛的欲望了，太卷了<br>感觉<code>AFL fuzz</code>技术也要学学，在很多题目上都能用到</p><h2 id="2023-12-28"><a href="#2023-12-28" class="headerlink" title="2023&#x2F;12&#x2F;28"></a>2023&#x2F;12&#x2F;28</h2><p>好好好，上大学一年多，已经变成<code>IT</code>的形状了</p><img src="/2023/12/27/2023%E5%B0%8F%E7%90%90%E7%A2%8E%E8%AE%B0%E5%BD%95%E8%B4%B4/5.png" class="" title="我的图图呢">  <p>考完<code>java</code>放松的时候翻了一下上学期校队送的<code>《CTF权威指南 pwn篇》</code>,发现里面的内容确实基础和简单，不过当时买回来看的时候感觉在看天书，真属于是不会时看天书，会时用不上了<br>里面的很多堆利用手法都过时了，不过感觉依然可以作为一本很好很系统的<code>pwn</code>入门书籍，期末后看看能不能找到想学<code>pwn</code>的学弟，把这本书送他并天天督促他学<code>pwn</code>(已经有一位学<code>web</code>的学弟成为受害者了)，好书不能浪费(其实是怕以后没人带&gt;_&lt;)</p><h2 id="2024-1-1"><a href="#2024-1-1" class="headerlink" title="2024&#x2F;1&#x2F;1"></a>2024&#x2F;1&#x2F;1</h2><p>2023年过的太失败了，2024给我冲！！！我要变强！！！</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;2023-3-27&quot;&gt;&lt;a href=&quot;#2023-3-27&quot; class=&quot;headerlink&quot; title=&quot;2023&amp;#x2F;3&amp;#x2F;27&quot;&gt;&lt;/a&gt;2023&amp;#x2F;3&amp;#x2F;27&lt;/h2&gt;&lt;p&gt;加入&lt;code&gt;Sloth&lt;/code&gt;咯！</summary>
       
     
     
