@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content=".friend-row {     display: flex;     align-items: center;     margin-bottom: 20px;   }   .friend-col {     flex: 1;     text-align: center;   }   .friend-avatar {     width: 60px;     height: 60px;">
+    <meta name="description" content=".friend-links-container {     display: grid;     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));     gap: 20px;     padding: 20px 0;   }      .friend-card {     display: flex;     ali">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Qanux&#39;s space">
 <meta property="og:url" content="https://qanux.github.io/friend/index.html">
 <meta property="og:site_name" content="Qanux&#39;s space">
-<meta property="og:description" content=".friend-row {     display: flex;     align-items: center;     margin-bottom: 20px;   }   .friend-col {     flex: 1;     text-align: center;   }   .friend-avatar {     width: 60px;     height: 60px;">
+<meta property="og:description" content=".friend-links-container {     display: grid;     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));     gap: 20px;     padding: 20px 0;   }      .friend-card {     display: flex;     ali">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/Csome.jpg?raw=true">
 <meta property="og:image" content="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/paz.jpg?raw=true">
@@ -39,8 +39,9 @@
 <meta property="og:image" content="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/V3rdant.jpg?raw=true">
 <meta property="og:image" content="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/z3n1th1.jpg?raw=true">
 <meta property="og:image" content="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/sekiro.png?raw=true">
-<meta property="article:published_time" content="2025-11-09T08:57:31.954Z">
-<meta property="article:modified_time" content="2025-11-09T08:57:31.954Z">
+<meta property="og:image" content="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/jmp.jpg?raw=true">
+<meta property="article:published_time" content="2025-12-31T14:44:54.700Z">
+<meta property="article:modified_time" content="2025-12-31T14:44:54.700Z">
 <meta property="article:author" content="Qanux">
 <meta property="article:tag" content="CsomePro">
 <meta name="twitter:card" content="summary">
@@ -134,172 +135,349 @@
   <div class="content" itemprop="articleBody">
       
           <style>
-  .friend-row {
+  .friend-links-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .friend-card {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
   }
-  .friend-col {
-    flex: 1;
-    text-align: center;
+  
+  .friend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.1); 
+    border-color: rgba(255, 255, 255, 0.3);
   }
+  
   .friend-avatar {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
-    display: inline-block;
-    float: left;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    margin-right: 15px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
   }
-  .friend-col p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
+  
+  .friend-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
     margin: 0;
+  }
+  
+  .friend-card:hover .friend-avatar img {
+    transform: rotate(360deg);
+  }
+  
+  .friend-info {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .friend-name {
+    color: inherit; 
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.95;
+  }
+  
+  .friend-desc {
+    color: inherit;
+    font-size: 0.85em;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    opacity: 0.7; 
+  }
+
+  @media (prefers-color-scheme: light) {
+    .friend-card {
+        background: rgba(0, 0, 0, 0.02);
+        border-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .friend-card:hover {
+        background: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+    .friend-avatar {
+        border-color: rgba(0, 0, 0, 0.1);
+    }
   }
 </style>
 
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://blog.csome.cc/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/Csome.jpg?raw=true" class="friend-avatar">Csome</a>
-    <p>20级Sloth战队队长，我pwn跟他学的</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://www.pazuris.cn/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/paz.jpg?raw=true" class="friend-avatar">pazuris</a>
-    <p>曾经的web👴，现在的开发👴</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="http://133nson.space/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/133nson.jpg?raw=true" class="friend-avatar">133NSON</a>
-    <p>21级pwn爹，比赛带我飞</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="http://p4n.zone"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/panz0e.jpg?raw=true" class="friend-avatar">panz0e</a>
-    <p>21级Sloth队长，知识面很广</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://zthlly.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/si1v3r.jpg?raw=true" class="friend-avatar">si1v3r</a>
-    <p>21级开发佬，会一点pwn</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://xtxtn.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/xtx.jpg?raw=true" class="friend-avatar">xtx</a>
-    <p>V&N最强的pwn</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://bbs.kanxue.com/homepage-922338.htm"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/eeee.png?raw=true" class="friend-avatar">eeee</a>
-    <p>著名南通，2023V&N队长</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://hvang10.github.io"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/HvAng.jpg?raw=true" class="friend-avatar">HvAng</a>
-    <p>和我同级的web/crypto手，还在猥琐发育</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://unk.org.cn/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/unk.jpg?raw=true" class="friend-avatar">unknow</a>
-    <p>2024V&N队长，好强的web，可靠的队友</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://Chimedal.github.io"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/Chimedal.jpg?raw=true" class="friend-avatar">Chimedal</a>
-    <p>23级web学弟，学习效率有待提高</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://www.korey0sh1.fun/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/korey0sh1.jpg?raw=true" class="friend-avatar">korey0sh1</a>
-    <p>0psu3 22级队长，想成为渗透大师</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://inkeyp.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/inkey.jpg?raw=true" class="friend-avatar">inkey</a>
-    <p>0psu3 23级队长，新一代pwn👴，盒武器</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://saofeia.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/saofei.jpg?raw=true" class="friend-avatar">Saofeia</a>
-    <p>Sloth 23级web手，这人怎么这么热情🤔</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://111yuzhiying.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/chral.jpg?raw=true" class="friend-avatar">Chral</a>
-    <p>我的标哥，我的ai神！😭😭😭</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://ngsjcbf.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/ng.jpg?raw=true" class="friend-avatar">NGSJCBF</a>
-    <p>当初和我一起入门CTF的东哥🥹</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://justdoittt.top/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/anchor.jpg?raw=true" class="friend-avatar">Anchor</a>
-    <p>Sloth 2021级java👴</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://jerry2500.github.io/Jerry2500.github-io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/ltz.jpg?raw=true" class="friend-avatar">LTZ</a>
-    <p>Sloth 2021级密码手，冲鸭👊👊👊</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://aecous.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/Aecous.png?raw=true" class="friend-avatar">Aecous</a>
-    <p>那位带V&N拿下ByteCTF和鹏城杯的男人</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://blog.xinshi.fun/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/xinshi.png?raw=true" class="friend-avatar">LilRan</a>
-    <p>今日启程 无畏向前</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://alexdkfighter.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/AlexD.jpg?raw=true" class="friend-avatar">AlexD</a>
-    <p>没想到吧，圈圈也有24级pwn小登了🥰</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://www.cameudis.com"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/cameudis.jpg?raw=true" class="friend-avatar">cameudis</a>
-    <p>永远喜欢明日香！</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://cnitlrt.github.io/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/cnitlrt.jpg?raw=true" class="friend-avatar">cnitlrt</a>
-    <p>内核神</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://baozongwi.xyz/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/baozongwi.jpg?raw=true" class="friend-avatar">baozongwi</a>
-    <p>每天进步一点点</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://v3rdant.cn/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/V3rdant.jpg?raw=true" class="friend-avatar">v3rdant</a>
-    <p>想当他校友🥹</p>
-  </div>
-</div>
-
-<div class="friend-row">
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://z3n1th1.com/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/z3n1th1.jpg?raw=true" class="friend-avatar">Z3n1th</a>
-    <p>你说的对，这就是既会web又会misc的z3</p>
-  </div>
-  <div class="friend-col">
-    <a target="_blank" rel="noopener" href="https://www.sekiro.love/"><img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/sekiro.png?raw=true" class="friend-avatar">sekiro</a>
-    <p>pwn和区块链双修的山治</p>
-  </div>
+<div class="friend-links-container">
+  <a href="https://blog.csome.cc/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/Csome.jpg?raw=true" alt="Csome">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Csome</div>
+      <div class="friend-desc">20级Sloth战队队长，我pwn跟他学的</div>
+    </div>
+  </a>
+  <a href="https://www.pazuris.cn/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/paz.jpg?raw=true" alt="pazuris">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">pazuris</div>
+      <div class="friend-desc">曾经的web👴，现在的开发👴</div>
+    </div>
+  </a>
+  <a href="http://133nson.space/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/133nson.jpg?raw=true" alt="133NSON">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">133NSON</div>
+      <div class="friend-desc">21级pwn爹，比赛带我飞</div>
+    </div>
+  </a>
+  <a href="http://p4n.zone" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/panz0e.jpg?raw=true" alt="panz0e">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">panz0e</div>
+      <div class="friend-desc">21级Sloth队长，知识面很广</div>
+    </div>
+  </a>
+  <a href="https://zthlly.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/si1v3r.jpg?raw=true" alt="si1v3r">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">si1v3r</div>
+      <div class="friend-desc">21级开发佬，会一点pwn</div>
+    </div>
+  </a>
+  <a href="https://xtxtn.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/xtx.jpg?raw=true" alt="xtx">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">xtx</div>
+      <div class="friend-desc">V&N最强的pwn</div>
+    </div>
+  </a>
+  <a href="https://bbs.kanxue.com/homepage-922338.htm" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/eeee.png?raw=true" alt="eeee">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">eeee</div>
+      <div class="friend-desc">著名南通，2023V&N队长</div>
+    </div>
+  </a>
+  <a href="https://hvang10.github.io" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/HvAng.jpg?raw=true" alt="HvAng">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">HvAng</div>
+      <div class="friend-desc">和我同级的web/crypto手，还在猥琐发育</div>
+    </div>
+  </a>
+  <a href="https://unk.org.cn/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/unk.jpg?raw=true" alt="unknow">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">unknow</div>
+      <div class="friend-desc">2024V&N队长，好强的web，可靠的队友</div>
+    </div>
+  </a>
+  <a href="https://Chimedal.github.io" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/Chimedal.jpg?raw=true" alt="Chimedal">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Chimedal</div>
+      <div class="friend-desc">23级web学弟，学习效率有待提高</div>
+    </div>
+  </a>
+  <a href="https://www.korey0sh1.fun/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/korey0sh1.jpg?raw=true" alt="korey0sh1">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">korey0sh1</div>
+      <div class="friend-desc">0psu3 22级队长，想成为渗透大师</div>
+    </div>
+  </a>
+  <a href="https://inkeyp.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/inkey.jpg?raw=true" alt="inkey">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">inkey</div>
+      <div class="friend-desc">0psu3 23级队长，新一代pwn👴，盒武器</div>
+    </div>
+  </a>
+  <a href="https://saofeia.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/saofei.jpg?raw=true" alt="Saofeia">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Saofeia</div>
+      <div class="friend-desc">Sloth 23级web手，这人怎么这么热情🤔</div>
+    </div>
+  </a>
+  <a href="https://111yuzhiying.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/chral.jpg?raw=true" alt="Chral">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Chral</div>
+      <div class="friend-desc">我的标哥，我的ai神！😭😭😭</div>
+    </div>
+  </a>
+  <a href="https://ngsjcbf.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/ng.jpg?raw=true" alt="NGSJCBF">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">NGSJCBF</div>
+      <div class="friend-desc">当初和我一起入门CTF的东哥🥹</div>
+    </div>
+  </a>
+  <a href="https://justdoittt.top/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/anchor.jpg?raw=true" alt="Anchor">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Anchor</div>
+      <div class="friend-desc">Sloth 2021级java👴</div>
+    </div>
+  </a>
+  <a href="https://jerry2500.github.io/Jerry2500.github-io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/ltz.jpg?raw=true" alt="LTZ">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">LTZ</div>
+      <div class="friend-desc">Sloth 2021级密码手，冲鸭👊👊👊</div>
+    </div>
+  </a>
+  <a href="https://aecous.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/Aecous.png?raw=true" alt="Aecous">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Aecous</div>
+      <div class="friend-desc">那位带V&N拿下ByteCTF和鹏城杯的男人</div>
+    </div>
+  </a>
+  <a href="https://blog.xinshi.fun/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/xinshi.png?raw=true" alt="LilRan">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">LilRan</div>
+      <div class="friend-desc">今日启程 无畏向前</div>
+    </div>
+  </a>
+  <a href="https://alexdkfighter.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/AlexD.jpg?raw=true" alt="AlexD">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">AlexD</div>
+      <div class="friend-desc">没想到吧，圈圈也有24级pwn小登了🥰</div>
+    </div>
+  </a>
+  <a href="https://www.cameudis.com" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/cameudis.jpg?raw=true" alt="cameudis">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">cameudis</div>
+      <div class="friend-desc">永远喜欢明日香！</div>
+    </div>
+  </a>
+  <a href="https://cnitlrt.github.io/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/cnitlrt.jpg?raw=true" alt="cnitlrt">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">cnitlrt</div>
+      <div class="friend-desc">内核神</div>
+    </div>
+  </a>
+  <a href="https://baozongwi.xyz/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/baozongwi.jpg?raw=true" alt="baozongwi">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">baozongwi</div>
+      <div class="friend-desc">每天进步一点点</div>
+    </div>
+  </a>
+  <a href="https://v3rdant.cn/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/V3rdant.jpg?raw=true" alt="v3rdant">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">v3rdant</div>
+      <div class="friend-desc">想当他校友🥹</div>
+    </div>
+  </a>
+  <a href="https://z3n1th1.com/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/z3n1th1.jpg?raw=true" alt="Z3n1th">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Z3n1th</div>
+      <div class="friend-desc">你说的对，这就是既会web又会misc的z3</div>
+    </div>
+  </a>
+  <a href="https://www.sekiro.love/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/sekiro.png?raw=true" alt="sekiro">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">sekiro</div>
+      <div class="friend-desc">pwn和区块链双修的山治</div>
+    </div>
+  </a>
+  <a href="http://jmpcliff.top/" class="friend-card" target="_blank">
+    <div class="friend-avatar">
+      <img src="https://qanux-blog.obs.cn-east-3.myhuaweicloud.com/friends/jmp.jpg?raw=true" alt="Jmp.Cliff">
+    </div>
+    <div class="friend-info">
+      <div class="friend-name">Jmp.Cliff</div>
+      <div class="friend-desc">我也想梦追夏花绽长安！</div>
+    </div>
+  </a>
 </div>
         
   </div>
