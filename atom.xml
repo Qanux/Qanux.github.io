@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Qanux&#39;s space</title>
+  
+  <subtitle>Nice to meet you!</subtitle>
+  <link href="https://qanux.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://qanux.github.io/"/>
+  <updated>2026-06-09T06:14:04.355Z</updated>
+  <id>https://qanux.github.io/</id>
+  
+  <author>
+    <name>Qanux</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>end</title>
+    <link href="https://qanux.github.io/2026/06/09/end/"/>
+    <id>https://qanux.github.io/2026/06/09/end/</id>
+    <published>2026-06-08T16:00:00.000Z</published>
+    <updated>2026-06-09T06:14:04.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>🫡</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;🫡&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
