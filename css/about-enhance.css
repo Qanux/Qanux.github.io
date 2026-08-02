@@ -1,0 +1,185 @@
+/* ============================================================
+   About Page Enhancement — multi-color accent system + depth
+   Scoped to .about-enhanced wrapper
+   ============================================================ */
+
+/* ----- Base overrides inside about wrapper ----- */
+.about-enhanced {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #d8d8d8;
+  line-height: 1.8;
+}
+
+/* Code stays monospace */
+.about-enhanced code,
+.about-enhanced pre {
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Menlo', 'Meslo LG', monospace;
+}
+
+/* ----- H1 — green, large, prominent ----- */
+.about-enhanced h1 {
+  color: #53cd53 !important;
+  font-size: 1.6em !important;
+  font-weight: 700 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  margin-top: 0 !important;
+  padding-bottom: 0.4em;
+  border-bottom: 1px dashed #444;
+}
+
+/* ----- H2 — cyan with # prefix (terminal style) ----- */
+.about-enhanced h2 {
+  color: #2dd3f0 !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  margin-top: 2.2rem !important;
+  position: relative;
+  padding-left: 0 !important;
+}
+
+.about-enhanced h2::before {
+  content: "# ";
+  color: #585858;
+  font-weight: 400;
+}
+
+/* ----- H3 — warm gold ----- */
+.about-enhanced h3 {
+  color: #e8cc7a !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 0.95em !important;
+  text-decoration: none !important;
+}
+
+/* ----- Strong / bold — blue highlight ----- */
+.about-enhanced strong {
+  color: #81b5ff;
+  font-weight: 600;
+}
+
+/* ----- Links — cyan → blue on hover ----- */
+.about-enhanced a {
+  color: #2dd3f0 !important;
+  text-decoration: none !important;
+  background-image: none !important;
+  transition: color 0.2s ease;
+}
+
+.about-enhanced a:hover {
+  color: #3282eb !important;
+  background-image: none !important;
+}
+
+/* ----- Horizontal rules (dashed as before but softer) ----- */
+.about-enhanced hr {
+  border-color: #444 !important;
+  opacity: 0.6 !important;
+}
+
+/* ----- CVE list items — subtle interactive hover ----- */
+.about-enhanced .cve-list li {
+  padding: 3px 0;
+  transition: all 0.15s ease;
+  border-radius: 3px;
+}
+
+.about-enhanced .cve-list li:hover {
+  background: #2a2d30;
+  padding-left: 6px;
+}
+
+/* ----- Awards list — gold bullets ----- */
+.about-enhanced .award-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-enhanced .award-list li {
+  padding: 4px 0;
+  padding-left: 1.4em;
+  position: relative;
+  transition: all 0.15s ease;
+  border-radius: 3px;
+}
+
+.about-enhanced .award-list li::before {
+  content: "*";
+  position: absolute;
+  left: 0.2em;
+  color: #e8cc7a;
+  font-weight: bold;
+}
+
+.about-enhanced .award-list li:hover {
+  background: #2a2d30;
+  padding-left: 1.8em;
+}
+
+/* ----- Education entries ----- */
+.about-enhanced .edu-entry {
+  margin-bottom: 0.8rem;
+}
+
+.about-enhanced .edu-entry .edu-school {
+  color: #49b6ff;
+  font-weight: 600;
+}
+
+.about-enhanced .edu-entry .edu-date {
+  color: #585858;
+  font-size: 0.85em;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Menlo', 'Meslo LG', monospace;
+}
+
+.about-enhanced .edu-entry .edu-degree {
+  color: #b8b8b8;
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* ----- Contact items ----- */
+.about-enhanced .contact-item {
+  display: inline-block;
+  margin-right: 1.2rem;
+  margin-bottom: 0.4rem;
+  color: #b8b8b8;
+}
+
+.about-enhanced .contact-item code {
+  background: #2a2d30;
+  color: #53cd53;
+  border: 1px solid #3a3d40;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* ----- General list styling (leadership, etc.) ----- */
+.about-enhanced ul:not(.award-list):not(.cve-list) li {
+  padding: 2px 0;
+  color: #c9cacc;
+}
+
+.about-enhanced ul:not(.award-list):not(.cve-list) li::marker {
+  color: #585858;
+}
+
+/* ----- Paragraph spacing ----- */
+.about-enhanced p {
+  margin-bottom: 0.8rem;
+}
+
+/* ----- Intro paragraph — slightly larger ----- */
+.about-enhanced .about-intro {
+  font-size: 0.95em;
+  color: #d8d8d8;
+  line-height: 1.9;
+}
+
+/* ----- Subtle transition on all interactive elements ----- */
+.about-enhanced a,
+.about-enhanced li {
+  transition: all 0.2s ease;
+}
