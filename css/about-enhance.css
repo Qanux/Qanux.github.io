@@ -90,6 +90,14 @@
   padding-left: 6px;
 }
 
+
+/* ----- Reference tags [report/patch] etc. — subtle accent ----- */
+.about-enhanced .ref-tag {
+  color: #f1aa7d;
+  font-size: 0.82em;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Menlo', monospace;
+}
+
 /* ----- Awards list — gold bullets ----- */
 .about-enhanced .award-list {
   list-style: none;
